@@ -4,7 +4,7 @@ import RecipeInput from "../ui/InputStyle";
 
 function Register() {
   return (
-    <form className="w-full  bg-white shadow-lg mt-5  p-10 rounded-lg max-w-lg mx-auto">
+    <form className="bg-white p-5 rounded-lg w-[40%] mx-auto mt-[2rem]  relative shadow-lg border border-gray-200">
       <div className="mb-6">
         <h1 className="flex items-center justify-center text-3xl font-bold text-gray-800 font-mono">
           Create New Account

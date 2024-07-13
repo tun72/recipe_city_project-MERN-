@@ -6,18 +6,17 @@ require("dotenv").config();
 const app = require("./app");
 
 // GLOBAL
-const URL = process.env.DATABASE.replace(
-  "<password>",
-  process.env.DATABASE_PASSWORD
-);
+// const URL = process.env.DATABASE.replace(
+//   "<password>",
+//   process.env.DATABASE_PASSWORD
+// );
 // LOCAL
 // const URL = process.env.DATABASE_LOCAL;
 
-<<<<<<< HEAD
+
 const URL = process.env.MONGODB_URL;
-=======
-// const URL = "mongodb+srv://hlaingminthan:test1234@mern-cluster.cut3lbf.mongodb.net/?retryWrites=true&w=majority";
->>>>>>> 1b39583cefda48d7b7c368a71ed84a1da0a23ccd
+
+
 mongoose.connect(URL).then(() => {
   console.log("Database is successfully connected ✅");
   app.listen(process.env.PORT, () => {
