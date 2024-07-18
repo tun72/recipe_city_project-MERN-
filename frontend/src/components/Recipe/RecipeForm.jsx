@@ -1,13 +1,13 @@
-import InputStyle from "../ui/InputStyle";
-import plus from "../assets/img/plus.svg";
-import RecipeLayout from "../ui/RecipeLayout";
+import InputStyle from "../../ui/InputStyle";
+import plus from "../../assets/img/plus.svg";
+import RecipeLayout from "../../ui/RecipeLayout";
 import RecipePreview from "./RecipePreview";
 import axios from "axios";
 
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { URL } from "../utils/constant";
-import Input from "../ui/Input";
+import { URL } from "../../utils/constant";
+import Input from "../../ui/Input";
 
 function RecipeForm() {
   const [title, setTitle] = useState("");
@@ -69,7 +69,7 @@ function RecipeForm() {
       if (id) {
         res = await axios.patch(URL + "/api/recipes/" + id + "/update", recipe);
       } else {
-        res = await axios.post(URL + "/api/recipes", recipe);
+        res = await axios.post(URL + "/api/recipes", recipe, {withCredentials: true});
       }
       if (res.status === 200) {
         navigate("/");

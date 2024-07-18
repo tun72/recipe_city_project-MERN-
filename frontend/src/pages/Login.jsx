@@ -1,8 +1,8 @@
+import AuthForm from "../components/Auth/AuthForm"
+
 function Login() {
     return (
-        <div>
-            Login
-        </div>
+        <AuthForm type="login" />
     )
 }
 

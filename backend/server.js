@@ -1,17 +1,33 @@
 const mongoose = require("mongoose");
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
+const cookieParser = require("cookie-parser")
+
 const env = require("dotenv");
 env.config();
-require("dotenv").config();
 
-const app = require("./app");
+const app = express();
 
-// GLOBAL
-// const URL = process.env.DATABASE.replace(
-//   "<password>",
-//   process.env.DATABASE_PASSWORD
-// );
-// LOCAL
-// const URL = process.env.DATABASE_LOCAL;
+
+const RecipeRouter = require("./routes/RecipeRoute");
+const AuthRouter = require("./routes/AuthRoute");
+
+
+
+app.use(express.json());
+app.use(morgan("dev"));
+app.use(cookieParser());
+
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
+
+app.use("/api/recipes", RecipeRouter);
+app.use("/api/auth", AuthRouter);
+
 
 
 const URL = process.env.MONGODB_URL;
@@ -26,17 +42,3 @@ mongoose.connect(URL).then(() => {
   });
 });
 
-
-
-//   {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//     useFindAndModify: true,
-//     useUnifiedTopology: true,
-//   }
-
-process.on("uncaughtException", (err) => {
-  console.log(err.message);
-  console.log("Uncaught Exception");
-  process.exit(1);
-});

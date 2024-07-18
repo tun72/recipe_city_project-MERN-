@@ -1,7 +1,7 @@
-import Operation from "../ui/Operation";
-import Ingredients from "./Ingredients";
-import Button from "../ui/Button";
-import IngredientItem from "./IngredientItem";
+import Operation from "../../ui/Operation";
+import Ingredients from "../Ingredients";
+import Button from "../../ui/Button";
+import IngredientItem from "../IngredientItem";
 
 function RecipeCard({
   recipe,

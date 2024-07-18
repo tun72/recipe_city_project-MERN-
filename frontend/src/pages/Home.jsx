@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import RecipeCard from "../components/RecipeCard";
+import RecipeCard from "../components/Recipe/RecipeCard";
 import { URL } from "../utils/constant";
 import Pagination from "../components/Pagination";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -19,12 +19,16 @@ function Home() {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const req = await fetch(URL + "/api/recipes" + "/?page=" + page);
-        console.log(req);
-        if (!req.ok) {
+        const req = await axios.get(URL + "/api/recipes" + "/?page=" + page, {
+          withCredentials: true,
+        });
+
+        if (!req.status === 200) {
           return alert("ERROR");
         }
-        const data = await req.json();
+
+        console.log(req);
+        const data = req.data;
         clearInterval;
         setRecipes(data.recipes);
 
