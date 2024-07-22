@@ -113,6 +113,15 @@ const RecipesController = {
       });
     } catch (e) {}
   },
+  upload: (req, res) => {
+    try {
+      console.log(req.file);
+      return res.json({image: "uploaded"})
+
+    } catch (error) {
+
+    }
+  }
 };
 
 module.exports = RecipesController;

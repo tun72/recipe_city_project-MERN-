@@ -9,6 +9,8 @@ env.config();
 
 const app = express();
 
+app.use(express.static("public"))
+
 
 const RecipeRouter = require("./routes/RecipeRoute");
 const AuthRouter = require("./routes/AuthRoute");

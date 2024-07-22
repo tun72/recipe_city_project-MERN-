@@ -21,8 +21,6 @@ function reducer(state, action) {
 }
 export function AuthProvider({ children }) {
   const [{ user }, dispatch] = useReducer(reducer, initialState);
-
-  console.log("hit context");
   useEffect(() => {
     const fetchUser = async () => {
       try {

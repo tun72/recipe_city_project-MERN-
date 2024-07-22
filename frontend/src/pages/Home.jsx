@@ -14,7 +14,6 @@ function Home() {
   const searchQuery = new URLSearchParams(location.search);
   const page = parseInt(searchQuery.get("page")) || 1;
   const navigate = useNavigate();
-  const length = recipes.length;
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -40,7 +39,7 @@ function Home() {
     };
 
     fetchRecipes();
-  }, [page, length]);
+  }, [page]);
 
   const handelDelete = async (_id) => {
     5;
